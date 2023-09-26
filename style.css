@@ -1,0 +1,79 @@
+* {
+    margin :0;
+    padding:0;
+    box-sizing:border-box;
+}
+body {
+    height: 100vh;
+    overflow: hidden;
+    /* background: linear-gradient(45deg,#061ed3,#e306ca);*/
+    background-color: #777676;
+    font-family: Helvetica, sans-serif;
+    color: rgb(211, 211, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width :208px;
+    height: 212px;
+    perspective: 800px;
+    margin: 0.5%;
+}
+/* Container-based card flipping */
+.grayContainer:hover .container .card {
+    transform: rotateY(0deg); /* Rotate cards to the front side when grayContainer is hovered */
+}
+
+/* Individual container hover effect for cards outside grayContainer */
+.container:not(.grayContainer) .card:hover {
+    cursor: pointer;
+    transform: rotateY(180deg); /* Rotate individual cards when hovered */
+}
+
+.card {
+    height: 100%;
+    width: 100%;    
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg); /* Rotate cards to their back side */
+}
+.front,
+.back{
+    height: 100%;
+    width:100%;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+    position: absolute;
+    backface-visibility: hidden;
+}
+.front {
+    background-image: url(sprintive\ logo.png);
+    background-size: contain;
+}
+.back{
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+.grayContainer{
+    width :95%;
+    height: 90%;
+    background-color: #f2f2f2;
+    margin: 0.5%;
+}
+.div1{
+    display: inline-flex;
+    position: absolute;
+    top: 70px;
+    left: 150px;
+}
+.div2{
+    display: inline-flex;
+    position: absolute;
+    bottom:70px;
+    left: 150px;
+}
